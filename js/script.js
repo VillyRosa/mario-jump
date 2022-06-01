@@ -1,8 +1,15 @@
 const menu = document.querySelector('.game-board');
 var bestScore = "000000";
 var nowScore = "000000";
+const soundStart = new Audio('sounds/start.wav');
 
 function start() {
+
+    soundStart.play();
+
+    menu.style.cursor = 'none'
+    nowScore = "000000";
+
     menu.innerHTML = `<img src="images/clouds.png" class="clouds">     
                       <img src="images/pipe.png" class="pipe">
                       <img src="images/mario.gif" class="mario">
@@ -12,9 +19,9 @@ function start() {
     const pipe = document.querySelector('.pipe');
     const clods = document.querySelector('.clouds'); 
     const score = document.querySelector('.score'); 
-    const soundJump = new Audio('sounds/jump.wav')
-    const soundGameOver = new Audio('sounds/game-over.wav')
-    const soundGame = new Audio('sounds/game-music.wav')
+    const soundJump = new Audio('sounds/jump.wav');
+    const soundGameOver = new Audio('sounds/game-over.wav');
+    const soundGame = new Audio('sounds/game-music.wav');
     
     const jump = () => {
         const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', ''); 
@@ -76,6 +83,8 @@ function start() {
 
         if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
     
+            menu.style.cursor = 'default'
+
             soundGame.pause();
             soundGameOver.play();
     
@@ -96,8 +105,6 @@ function start() {
     
             window.document.removeEventListener('keydown', jump);
             window.document.removeEventListener('touchstart', jump);
-
-            nowScore = "000000";
 
             setTimeout(() => {
                 menu.innerHTML = `<img src="images/clouds.png" class="clouds">     
