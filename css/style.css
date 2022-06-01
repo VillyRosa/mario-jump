@@ -3,10 +3,10 @@
     margin: 0;
     text-decoration: none;
     box-sizing: border-box;
-    cursor: none;
 }
 
 .game-board {
+    cursor: none;
     width: 100%;
     height: 100vh;
     border-bottom: 15px solid rgb(15, 192, 15);
@@ -14,6 +14,7 @@
     position: relative;
     overflow: hidden;
     background: linear-gradient(rgb(64, 226, 255), rgb(160, 238, 214));
+    display: flex;
 }
 
 .mario{
@@ -89,4 +90,73 @@
     to {
         right: 100%;
     }
+}
+
+@keyframes btn-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.score{
+    color: white;
+    font-family: Arial;
+    font-size: 15pt;
+    margin: 10px 0 0 10px;
+    position: absolute;
+    text-shadow: 1px 1px 2px black;
+}
+
+.menu {
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    background-color: #302c2c;
+    overflow: hidden;
+    align-self: center;
+    margin-left: 23%;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    cursor: auto;
+}
+
+.menu img{
+    width: 200px;
+}
+
+.menu .btn{
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #952424;
+    font-family: Arial;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 0px 20px 3px #000000;
+    transition: all 1s;
+    animation: btn-animation 1s infinite;
+}
+
+.menu .btn:hover{
+    transform: scale(1.2);
+    animation: none;
+}
+
+.menu p{
+    color: white;
+    font-family: Arial;
 }
